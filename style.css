@@ -123,3 +123,7 @@ html[lang="en"] .loop-group>span:not(.loop-logo){letter-spacing:-.015em}
 .eyebrow .inline-brand-logo{width:56px;height:43px}
 .section-label .inline-brand-logo,.footer-meta .inline-brand-logo{width:42px;height:32px;vertical-align:middle}
 html[lang="en"] .statement h2 .inline-brand-logo{margin-inline:.08em}
+
+/* Keep each language option in its own brand typeface in either locale. */
+.language-options button[lang="ar"],html[lang="en"] .language-options button[lang="ar"]{font-family:"DG Baysan",sans-serif;font-weight:400;letter-spacing:0}
+.language-options button[lang="en"],html[lang="en"] .language-options button[lang="en"]{font-family:"Outfit",Arial,sans-serif;font-weight:500;letter-spacing:0}
