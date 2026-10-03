@@ -36,6 +36,9 @@
  }
  const picker=button.closest('.language-picker'),options=document.querySelector('#language-options');
  const setOpen=(open,returnFocus=false)=>{options.hidden=!open;button.setAttribute('aria-expanded',String(open));if(returnFocus)button.focus();};
+ let hoverTimer;
+ picker.addEventListener('pointerenter',event=>{if(event.pointerType==='mouse'){clearTimeout(hoverTimer);setOpen(true);}});
+ picker.addEventListener('pointerleave',event=>{if(event.pointerType==='mouse'){hoverTimer=setTimeout(()=>{if(!picker.contains(document.activeElement))setOpen(false);},160);}});
  button.addEventListener('click',()=>setOpen(options.hidden));
  options.querySelectorAll('button').forEach(option=>option.addEventListener('click',()=>{apply(option.dataset.language);setOpen(false,true);}));
  document.addEventListener('pointerdown',event=>{if(!picker.contains(event.target))setOpen(false);});
