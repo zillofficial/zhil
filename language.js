@@ -8,7 +8,8 @@
  ['#identity .section-label > span:first-child','03 / Our identity'],['#identity .section-caption','LIGHT. SHADOW. CHARACTER.'],['.logo-panel p','Between light and shadow, our identity takes shape.'],['.identity-copy h2','Quiet in colour.<br>Strong in presence.'],['.identity-copy > p','Deep black, soft gold, and warm ivory. A balance that gives details room to breathe and lets the idea speak.'],
  ['#work .section-label > span:first-child','04 / Our work'],['#work .section-caption','SELECTED WORK'],['.work-intro h2','Ideas that become<br>lasting impressions.'],['.work-intro p','Our portfolio is taking shape.<br>Coming soon.'],['.footer-title','Your idea.<br><span>Our lasting impact.</span>'],['.contact-eyebrow',"Let’s start with an idea"],['label[for="contact-name"]','Your name'],['label[for="contact-email"]','Your email'],['label[for="contact-service"]','What do you need?'],['.send-row strong','Send request'],['.sling-hint','Press, or pull and release'],['.footer-meta > span:first-child','ZHIL'],['.footer-meta > span:nth-child(2)','We create a presence that lasts.'],['.footer-meta > a','Back to top ↑']
  ];
- const records=translations.map(([selector,en])=>{const el=document.querySelector(selector);return {el,en,ar:el.innerHTML};});
+ const brandLogo='<svg class="inline-brand-logo" viewBox="227 274 637 483" role="img" aria-label="ZHIL"><image href="logo.png" width="1080" height="1080"/></svg>';
+ const records=translations.map(([selector,en])=>{const el=document.querySelector(selector);return {el,en:en.replace(/ZHIL/g,brandLogo),ar:el.innerHTML};});
  const logos=[...document.querySelectorAll('header svg:has(image), main svg:has(image)')].map(el=>({el,ar:el.innerHTML,view:el.getAttribute('viewBox')}));
  const arColours=['رمادي الظل','ذهبي هادئ','عاجي دافئ','برونزي عميق'], enColours=['Shadow grey','Soft gold','Warm ivory','Deep bronze'];
  const button=document.querySelector('.language-toggle');
@@ -24,7 +25,7 @@
  function apply(lang){
  const en=lang==='en';document.documentElement.lang=en?'en':'ar';document.documentElement.dir=en?'ltr':'rtl';
  records.forEach(({el,ar,en:english})=>el.innerHTML=en?english:ar);
- logos.forEach(({el,ar,view})=>{el.setAttribute('viewBox',en?'0 0 400 160':view);el.innerHTML=en?'<text x="200" y="108" text-anchor="middle" fill="currentColor" font-family="Outfit,Arial,sans-serif" font-size="88" font-weight="400" letter-spacing="14">ZHIL</text>':ar;el.setAttribute('aria-label',en?'ZHIL logo':'شعار ظل');});
+ logos.forEach(({el,ar,view})=>{el.setAttribute('viewBox',en?'227 274 637 483':view);el.innerHTML=ar;el.setAttribute('aria-label',en?'ZHIL logo':'شعار ظل');});
  document.querySelectorAll('.loop-group').forEach(group=>group.querySelectorAll(':scope > span:not(.loop-logo)').forEach((el,i)=>el.textContent=(en?['We design.','We create.','We leave a mark.']:['نصمم.','نبتكر.','نترك أثرًا.'])[i]));
  const attrs=[['.skip','title','انتقل إلى المحتوى','Skip to content'],['.brand','aria-label','ظل — الرئيسية','ZHIL — Home'],['.card-content','aria-label','التنقل الرئيسي','Main navigation'],['.swatches','aria-label','اختر خلفية الشعار','Choose the logo background'],['.brand-loop','aria-label','ظل — نصمم، نبتكر، نترك أثرًا','ZHIL — We design. We create. We leave a mark.'],['#contact-name','placeholder','كيف نناديك؟','What should we call you?'],['#contact-email','placeholder','عنوان بريدك الإلكتروني','you@example.com'],['#contact-service','placeholder','احكِ لنا ما تحتاجه','Tell us what you need'],['.sling-pad','aria-label','إرسال الطلب','Send request'],['.social-icons','aria-label','تواصل مع ظل','Connect with ZHIL']];
  attrs.forEach(([s,a,ar,eng])=>document.querySelector(s).setAttribute(a,en?eng:ar));

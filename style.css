@@ -117,3 +117,9 @@ html[lang="en"] h3,html[lang="en"] .contact-eyebrow{letter-spacing:-.015em}
 html[lang="en"] button,html[lang="en"] select,html[lang="en"] textarea{font-family:var(--font-latin)}
 html[lang="en"] .send-row strong{font-weight:600}
 html[lang="en"] .loop-group>span:not(.loop-logo){letter-spacing:-.015em}
+
+/* Original brand artwork replaces the English text wordmark. */
+.inline-brand-logo{display:inline-block;width:1.5em;height:1.14em;vertical-align:-.2em;overflow:visible;flex-shrink:0}
+.eyebrow .inline-brand-logo{width:56px;height:43px}
+.section-label .inline-brand-logo,.footer-meta .inline-brand-logo{width:42px;height:32px;vertical-align:middle}
+html[lang="en"] .statement h2 .inline-brand-logo{margin-inline:.08em}
