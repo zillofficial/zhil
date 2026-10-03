@@ -79,3 +79,27 @@ footer.wrap{display:grid;grid-template-columns:1fr minmax(320px,460px);gap:60px;
 
 /* Decorative wheels: one gentle revolution, then a quiet pause. */
 .spark,.loop-group>i{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;transform-origin:center;animation:spark-wheel 6s cubic-bezier(.45,0,.25,1) infinite}.loop-group>i{width:1.2em;height:1.2em;line-height:1}@keyframes spark-wheel{0%,60%{transform:rotate(0deg)}90%,100%{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.spark,.loop-group>i{animation:none}}
+/* English type hierarchy: clear display, section, body and caption roles. */
+html[lang="en"]{--font-latin:"Helvetica Neue",Helvetica,Arial,sans-serif}
+html[lang="en"] body{font-weight:400;-webkit-font-smoothing:antialiased}
+html[lang="en"] .hero h1{font-size:clamp(58px,7.4vw,112px);font-weight:500;line-height:1.04;letter-spacing:-.055em;max-width:1000px;text-wrap:balance}
+html[lang="en"] .hero-bottom p{font-size:18px;line-height:1.65;font-weight:400;max-width:38ch}
+html[lang="en"] .eyebrow{font-size:12px;font-weight:600;letter-spacing:.18em;margin-bottom:32px}
+html[lang="en"] h2{font-size:clamp(36px,4.4vw,64px);font-weight:500;line-height:1.13;letter-spacing:-.04em;text-wrap:balance}
+html[lang="en"] .identity-copy h2{font-size:clamp(34px,3.6vw,52px)}
+html[lang="en"] h3{font-size:26px;font-weight:500;line-height:1.25;letter-spacing:-.025em;margin-bottom:14px}
+html[lang="en"] .statement p{font-size:19px;line-height:1.85;max-width:52ch;margin-top:32px}
+html[lang="en"] .principles p,html[lang="en"] .identity-copy p,html[lang="en"] .work-intro p{font-size:17px;font-weight:400;line-height:1.8;max-width:43ch}
+html[lang="en"] .section-label{font-size:12px;font-weight:500;letter-spacing:.035em}
+html[lang="en"] .section-caption{font-size:10px;letter-spacing:.14em;line-height:1.65}
+html[lang="en"] .number{font-size:12px;font-weight:400;letter-spacing:.04em;padding-top:6px}
+html[lang="en"] .footer-title{font-size:clamp(46px,5.8vw,84px);font-weight:500;line-height:1.1;letter-spacing:-.045em}
+html[lang="en"] .contact-eyebrow{font-size:24px;font-weight:500;letter-spacing:-.025em}
+html[lang="en"] .glass-contact label{font-size:13px;font-weight:500;line-height:1.5}
+html[lang="en"] .glass-contact input{font-size:16px;font-weight:400;line-height:1.5}
+html[lang="en"] .send-row strong{font-size:16px;font-weight:500}
+html[lang="en"] .sling-hint,html[lang="en"] .contact-status{font-size:12px!important;line-height:1.65!important}
+html[lang="en"] .loop-group>span:not(.loop-logo){font-size:30px;font-weight:400;letter-spacing:-.035em}
+html[lang="en"] .tile-label{font-size:23px;font-weight:500;letter-spacing:-.02em}
+html[lang="en"] .tile-links a{font-size:14px;font-weight:400;line-height:1.6}
+@media(max-width:800px){html[lang="en"] .hero h1{font-size:clamp(44px,10.8vw,76px);line-height:1.07;letter-spacing:-.045em}html[lang="en"] h2,html[lang="en"] .identity-copy h2{font-size:clamp(32px,8vw,46px);line-height:1.16}html[lang="en"] h3{font-size:23px}html[lang="en"] .statement p{font-size:17px;line-height:1.8}html[lang="en"] .hero-bottom p,html[lang="en"] .principles p,html[lang="en"] .identity-copy p,html[lang="en"] .work-intro p{font-size:16px;line-height:1.75}html[lang="en"] .footer-title{font-size:clamp(40px,10vw,62px)}html[lang="en"] .section-caption{font-size:10px;max-width:130px}html[lang="en"] .loop-group>span:not(.loop-logo){font-size:25px}}
