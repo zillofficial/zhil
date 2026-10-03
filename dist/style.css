@@ -52,3 +52,12 @@ footer.wrap{display:grid;grid-template-columns:1fr minmax(320px,460px);gap:60px;
 /* Soft corners for the interactive identity preview. */
 .logo-panel{border-radius:28px;overflow:hidden}
 @media(max-width:600px){.logo-panel{border-radius:22px}}
+
+/* Latin typography: restrained sans-serif, paired with the original Arabic face. */
+:root{--font-latin:"Avenir Next","Segoe UI","Helvetica Neue",Arial,sans-serif}
+.hero-foot span[dir="ltr"],.section-label [dir="ltr"],.number,.latin,.glass-contact input[type="email"]{font-family:var(--font-latin);font-style:normal}
+.hero-foot span[dir="ltr"],.section-label [dir="ltr"]{font-size:12px;font-weight:500;letter-spacing:.065em;line-height:1.7}
+.number{font-size:14px;font-weight:500;letter-spacing:.015em;font-variant-numeric:tabular-nums;direction:ltr}
+.latin{font-weight:500;letter-spacing:.045em}
+.glass-contact input[type="email"]{font-size:16px;font-weight:400;letter-spacing:.01em}
+@media(max-width:800px){.hero-foot span[dir="ltr"],.section-label [dir="ltr"]{font-size:11px;letter-spacing:.04em}}
