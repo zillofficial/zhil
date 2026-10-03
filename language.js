@@ -9,7 +9,7 @@
  ['#work .section-label > span:first-child','04 / Our work'],['#work .section-caption','SELECTED WORK'],['.work-intro h2','Ideas that become<br>lasting impressions.'],['.work-intro p','Our portfolio is taking shape.<br>Coming soon.'],['.footer-title','Your idea.<br><span>Our lasting impact.</span>'],['.contact-eyebrow',"Let’s start with an idea"],['label[for="contact-name"]','Your name'],['label[for="contact-email"]','Your email'],['label[for="contact-service"]','What do you need?'],['.send-row strong','Send request'],['.sling-hint','Press, or pull and release'],['.footer-meta > span:first-child','ZHIL'],['.footer-meta > span:nth-child(2)','We create a presence that lasts.'],['.footer-meta > a','Back to top ↑']
  ];
  const brandLogo='<svg class="inline-brand-logo" viewBox="227 274 637 483" role="img" aria-label="ZHIL"><image href="logo.png" width="1080" height="1080"/></svg>';
- const records=translations.map(([selector,en])=>{const el=document.querySelector(selector);return {el,en:en.replace(/ZHIL/g,brandLogo),ar:el.innerHTML};});
+ const records=translations.map(([selector,en])=>{const el=document.querySelector(selector);return {el,en:['.eyebrow','#about .section-label > span:first-child'].includes(selector)?en:en.replace(/ZHIL/g,brandLogo),ar:el.innerHTML};});
  const logos=[...document.querySelectorAll('header svg:has(image), main svg:has(image)')].map(el=>({el,ar:el.innerHTML,view:el.getAttribute('viewBox')}));
  const arColours=['رمادي الظل','ذهبي هادئ','عاجي دافئ','برونزي عميق'], enColours=['Shadow grey','Soft gold','Warm ivory','Deep bronze'];
  const button=document.querySelector('.language-toggle');
