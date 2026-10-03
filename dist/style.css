@@ -154,4 +154,10 @@ html[lang="en"] .statement h2 .inline-brand-logo{margin-inline:.08em}
 #work .brand-paper{width:180px}#work .paper-adda{--x:-185px}#work .paper-caffaino{--x:185px}
 html[lang="en"] #work>.section-label{direction:ltr}html[lang="en"] #work>.work-intro{direction:ltr;text-align:left}html[lang="en"] #work>.work-folder{direction:ltr}
 @media(max-width:1100px){#work{column-gap:36px}#work .brand-paper{width:155px}#work .paper-adda{--x:-155px}#work .paper-caffaino{--x:155px}#work .brand-paper>[data-project-name]{font-size:24px}}
-@media(max-width:900px){#work{display:block}#work>.work-intro{padding:40px 0 0;gap:20px}#work>.work-folder{height:565px;margin:65px auto 20px;max-width:550px}#work .brand-paper{width:145px;top:155px;min-height:132px}#work .paper-adda{--x:-78px;--r:-5deg}#work .paper-caffaino{--x:78px;--r:5deg}#work .paper-skyward{top:5px;--x:0px}}
+@media(max-width:1100px){#work{display:block}#work>.work-intro{padding:40px 0 0;gap:20px}#work>.work-folder{height:565px;margin:65px auto 20px;max-width:550px}#work .brand-paper{width:145px;top:155px;min-height:132px}#work .paper-adda{--x:-78px;--r:-5deg}#work .paper-caffaino{--x:78px;--r:5deg}#work .paper-skyward{top:5px;--x:0px}}
+
+/* Touch layouts and narrow screens. */
+.project-dialog{height:90vh;height:90dvh}.project-dialog-bar{flex-shrink:0}.project-dialog-bar strong{min-width:0}.folder-front{touch-action:manipulation}.brand-paper{touch-action:manipulation}
+@media(max-width:1100px){#work>.work-intro{align-items:stretch}#work>.work-intro p{max-width:44ch}#work>.work-folder{margin-top:50px}.project-dialog{width:96vw}}
+@media(max-width:360px){#work .brand-paper{width:128px}#work .paper-adda{--x:-66px}#work .paper-caffaino{--x:66px}#work .brand-paper>[data-project-name],html[lang="en"] #work .brand-paper>[data-project-name]{font-size:21px}.project-dialog-bar{gap:8px;padding:0 8px}.project-dialog-bar strong{font-size:12px}.project-full{font-size:11px}.project-close{width:40px;min-width:40px}.folder-object{width:260px}}
+@media(max-width:800px){.glass-contact{min-width:0;max-width:100%}.glass-contact input{min-width:0;max-width:100%}.project-dialog{height:94vh;height:94dvh}.project-dialog-bar{height:64px}.project-dialog iframe{height:calc(100% - 64px)}html[lang="en"] .hero h1{overflow-wrap:normal}}
