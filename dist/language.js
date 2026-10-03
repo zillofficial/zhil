@@ -30,10 +30,16 @@
  attrs.forEach(([s,a,ar,eng])=>document.querySelector(s).setAttribute(a,en?eng:ar));
  document.querySelectorAll('.social-icons a').forEach((el,i)=>{el.setAttribute('aria-label',(en?['WhatsApp','Instagram','Facebook']:['واتساب','إنستجرام','فيسبوك'])[i]);el.title=el.getAttribute('aria-label');});
  document.querySelector('#contact-email').dir=en?'ltr':'rtl';
- button.querySelector('span').textContent=en?'العربية':'English';button.lang=en?'ar':'en';button.setAttribute('aria-label',en?'التبديل إلى العربية':'Switch to English');
+ button.setAttribute('aria-label',en?'Choose language':'اختيار اللغة');document.querySelector('#language-options').setAttribute('aria-label',en?'Languages':'اللغات');document.querySelectorAll('[data-language]').forEach(option=>option.setAttribute('aria-pressed',String(option.dataset.language===lang)));
  document.title=en?'ZHIL — A presence that lasts':'ظل — نصنع حضورًا يبقى';document.querySelector('meta[name="description"]').content=en?'ZHIL — We design, create, and leave a mark. A creative vision with an identity that speaks for you.':'ظل — نصمم، نبتكر، ونترك أثرًا. رؤية إبداعية بهوية تتحدث عنك.';
  refreshLanguageState();try{localStorage.setItem('zhil-language',en?'en':'ar');}catch(_){}
  }
- button.addEventListener('click',()=>apply(document.documentElement.lang==='ar'?'en':'ar'));
+ const picker=button.closest('.language-picker'),options=document.querySelector('#language-options');
+ const setOpen=(open,returnFocus=false)=>{options.hidden=!open;button.setAttribute('aria-expanded',String(open));if(returnFocus)button.focus();};
+ button.addEventListener('click',()=>setOpen(options.hidden));
+ options.querySelectorAll('button').forEach(option=>option.addEventListener('click',()=>{apply(option.dataset.language);setOpen(false,true);}));
+ document.addEventListener('pointerdown',event=>{if(!picker.contains(event.target))setOpen(false);});
+ picker.addEventListener('keydown',event=>{if(event.key==='Escape'){setOpen(false,true);}if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();const items=[...options.querySelectorAll('button')];setOpen(true);const i=items.indexOf(document.activeElement);items[(i+(event.key==='ArrowDown'?1:-1)+items.length)%items.length].focus();}});
+ picker.addEventListener('focusout',()=>requestAnimationFrame(()=>{if(!picker.contains(document.activeElement))setOpen(false);}));
  let saved;try{saved=localStorage.getItem('zhil-language');}catch(_){}apply(saved==='en'?'en':'ar');
 })();
