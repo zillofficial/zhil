@@ -5,7 +5,7 @@
  const setOpen=open=>{
    header.classList.toggle('is-open',open);panel.inert=!open;
    trigger.setAttribute('aria-expanded',String(open));
-   trigger.setAttribute('aria-label',open?'إغلاق القائمة':'فتح القائمة');
+   trigger.setAttribute('aria-label',open?zhilText('إغلاق القائمة','Close menu'):zhilText('فتح القائمة','Open menu'));
  };
  trigger.addEventListener('click',()=>setOpen(!header.classList.contains('is-open')));
  panel.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>setOpen(false)));
@@ -44,7 +44,7 @@
   }
 })();
 
-(() => {const strip=document.querySelector('.brand-loop');const button=strip.querySelector('.loop-pause');button.addEventListener('click',()=>{const paused=strip.classList.toggle('is-paused');button.setAttribute('aria-pressed',String(paused));button.setAttribute('aria-label',paused?'تشغيل حركة الشريط':'إيقاف حركة الشريط');button.textContent=paused?'تشغيل الحركة':'إيقاف الحركة';});})();
+(() => {const strip=document.querySelector('.brand-loop');const button=strip.querySelector('.loop-pause');button.addEventListener('click',()=>{const paused=strip.classList.toggle('is-paused');button.setAttribute('aria-pressed',String(paused));button.setAttribute('aria-label',paused?'تشغيل حركة الشريط':'إيقاف حركة الشريط');button.textContent=paused?'تشغيل الحركة':'إيقاف الحركة';refreshLanguageState();});})();
 
 (() => {const button=document.querySelector('.glass-contact');const reduced=matchMedia('(prefers-reduced-motion: reduce)');button.addEventListener('pointermove',event=>{if(reduced.matches)return;const r=button.getBoundingClientRect();const angle=Math.atan2(event.clientY-r.top-r.height/2,event.clientX-r.left-r.width/2)*180/Math.PI+90;button.style.setProperty('--shine-angle',angle+'deg');});})();
 
@@ -63,7 +63,7 @@
  pad.addEventListener('pointerup',e=>release(e));pad.addEventListener('pointercancel',e=>release(e,true));pad.addEventListener('lostpointercapture',e=>release(e,true));
  pad.addEventListener('keydown',e=>{if(e.key==='Escape'&&grip)release({pointerId:grip.id},true);if(e.key==='Enter'||e.key===' ')skip=false;});
  pad.addEventListener('click',e=>{if(skip){e.preventDefault();skip=false;}});
- form.addEventListener('submit',e=>{e.preventDefault();status.textContent='سيُتاح الإرسال عبر البريد قريبًا. يمكنك التواصل معنا الآن عبر أيقونة واتساب.';});
+ form.addEventListener('submit',e=>{e.preventDefault();status.textContent=zhilText('سيُتاح الإرسال عبر البريد قريبًا. يمكنك التواصل معنا الآن عبر أيقونة واتساب.','Email submission is coming soon. Please contact us on WhatsApp.');});
 })();
 
 (() => {
@@ -72,6 +72,6 @@
    buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
    panel.style.backgroundColor=button.dataset.color;
    panel.dataset.ink=button.dataset.ink;
-   status.textContent='خلفية الشعار: '+button.getAttribute('aria-label');
+   status.textContent=zhilText('خلفية الشعار: ','Logo background: ')+button.getAttribute('aria-label');
  }));
 })();
