@@ -44,7 +44,6 @@
   }
 })();
 
-(() => {const strip=document.querySelector('.brand-loop');const button=strip.querySelector('.loop-pause');button.addEventListener('click',()=>{const paused=strip.classList.toggle('is-paused');button.setAttribute('aria-pressed',String(paused));button.setAttribute('aria-label',paused?'تشغيل حركة الشريط':'إيقاف حركة الشريط');button.textContent=paused?'تشغيل الحركة':'إيقاف الحركة';refreshLanguageState();});})();
 
 (() => {const button=document.querySelector('.glass-contact');const reduced=matchMedia('(prefers-reduced-motion: reduce)');button.addEventListener('pointermove',event=>{if(reduced.matches)return;const r=button.getBoundingClientRect();const angle=Math.atan2(event.clientY-r.top-r.height/2,event.clientX-r.left-r.width/2)*180/Math.PI+90;button.style.setProperty('--shine-angle',angle+'deg');});})();
 

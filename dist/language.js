@@ -14,10 +14,9 @@
  const button=document.querySelector('.language-toggle');
  window.zhilText=(ar,en)=>document.documentElement.lang==='en'?en:ar;
  window.refreshLanguageState=()=>{
- const en=document.documentElement.lang==='en',paused=document.querySelector('.brand-loop').classList.contains('is-paused');
+ const en=document.documentElement.lang==='en';
  const toggle=document.querySelector('.card-toggle'),open=toggle.getAttribute('aria-expanded')==='true';
  toggle.setAttribute('aria-label',en?(open?'Close menu':'Open menu'):(open?'إغلاق القائمة':'فتح القائمة'));
- const pause=document.querySelector('.loop-pause');pause.textContent=en?(paused?'Resume motion':'Pause motion'):(paused?'تشغيل الحركة':'إيقاف الحركة');pause.setAttribute('aria-label',pause.textContent);
  const colours=[...document.querySelectorAll('.swatches button')];colours.forEach((el,i)=>{el.title=(en?enColours:arColours)[i];el.setAttribute('aria-label',el.title);});
  document.querySelector('.swatch-status').textContent=(en?'Logo background: ':'خلفية الشعار: ')+colours.find(el=>el.getAttribute('aria-pressed')==='true').title;
  document.querySelector('.contact-status').textContent=en?'Email submission is coming soon. You can contact us on WhatsApp.':'سيُتاح الإرسال عبر البريد قريبًا. يمكنك التواصل معنا عبر واتساب.';
