@@ -12,7 +12,7 @@
  const image=new Image();image.src='hero.png';
  const ready=image.decode?image.decode().catch(()=>{}):new Promise(resolve=>{image.onload=image.onerror=resolve;if(image.complete)resolve();});
  const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
- Promise.all([delay(1500),Promise.race([ready,delay(2800)])]).then(()=>{
+ Promise.all([delay(1800),Promise.race([ready,delay(2800)])]).then(()=>{
  if(done)return;overlay.classList.add('entering');setTimeout(finish,750);
  });
  setTimeout(finish,4200);
