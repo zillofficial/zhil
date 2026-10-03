@@ -144,3 +144,14 @@ html[lang="en"] .statement h2 .inline-brand-logo{margin-inline:.08em}
 .folder-front{background:#8c6a3b;border-color:#a37d49;box-shadow:0 12px 28px #0003;color:#f5f1e8}
 .folder-sheet{background:#8c6a3b;border:1px solid #ad8754;opacity:1}
 .folder-sub{color:#f5f1e8d9}.folder-symbol,.folder-plus{color:#f5f1e8}
+
+/* Work section: copy on the right, folder on the left with room for its cards. */
+#work{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:64px;align-items:center;direction:ltr}
+#work>.section-label{grid-column:1/-1;width:100%;direction:rtl}
+#work>.work-intro{grid-column:2;grid-row:2;display:flex;flex-direction:column;align-items:flex-start;gap:24px;direction:rtl;text-align:right;margin:0;padding:60px 0}
+#work>.work-intro h2{margin:0}#work>.work-intro p{margin:0;max-width:36ch;line-height:1.85}
+#work>.work-folder{grid-column:1;grid-row:2;width:100%;height:500px;margin:70px 0 30px;direction:rtl}
+#work .brand-paper{width:180px}#work .paper-adda{--x:-185px}#work .paper-caffaino{--x:185px}
+html[lang="en"] #work>.section-label{direction:ltr}html[lang="en"] #work>.work-intro{direction:ltr;text-align:left}html[lang="en"] #work>.work-folder{direction:ltr}
+@media(max-width:1100px){#work{column-gap:36px}#work .brand-paper{width:155px}#work .paper-adda{--x:-155px}#work .paper-caffaino{--x:155px}#work .brand-paper>[data-project-name]{font-size:24px}}
+@media(max-width:900px){#work{display:block}#work>.work-intro{padding:40px 0 0;gap:20px}#work>.work-folder{height:565px;margin:65px auto 20px;max-width:550px}#work .brand-paper{width:145px;top:155px;min-height:132px}#work .paper-adda{--x:-78px;--r:-5deg}#work .paper-caffaino{--x:78px;--r:5deg}#work .paper-skyward{top:5px;--x:0px}}
