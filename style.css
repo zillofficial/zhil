@@ -103,3 +103,8 @@ html[lang="en"] .loop-group>span:not(.loop-logo){font-size:30px;font-weight:400;
 html[lang="en"] .tile-label{font-size:23px;font-weight:500;letter-spacing:-.02em}
 html[lang="en"] .tile-links a{font-size:14px;font-weight:400;line-height:1.6}
 @media(max-width:800px){html[lang="en"] .hero h1{font-size:clamp(44px,10.8vw,76px);line-height:1.07;letter-spacing:-.045em}html[lang="en"] h2,html[lang="en"] .identity-copy h2{font-size:clamp(32px,8vw,46px);line-height:1.16}html[lang="en"] h3{font-size:23px}html[lang="en"] .statement p{font-size:17px;line-height:1.8}html[lang="en"] .hero-bottom p,html[lang="en"] .principles p,html[lang="en"] .identity-copy p,html[lang="en"] .work-intro p{font-size:16px;line-height:1.75}html[lang="en"] .footer-title{font-size:clamp(40px,10vw,62px)}html[lang="en"] .section-caption{font-size:10px;max-width:130px}html[lang="en"] .loop-group>span:not(.loop-logo){font-size:25px}}
+/* Mirror the hero architecture so English copy sits on its darker side. */
+html[lang="en"] .hero-art{transform:scaleX(-1)}
+html[lang="en"] .hero::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(5,5,5,.48) 0%,rgba(5,5,5,.22) 48%,transparent 78%)}
+html[lang="en"] .hero-bottom p{color:#e2ded5}
+@media(max-width:800px){html[lang="en"] .hero::after{background:linear-gradient(90deg,rgba(5,5,5,.6),rgba(5,5,5,.3) 65%,rgba(5,5,5,.05))}}
