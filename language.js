@@ -32,7 +32,7 @@
  document.querySelector('#contact-email').dir=en?'ltr':'rtl';
  button.setAttribute('aria-label',en?'Choose language':'اختيار اللغة');document.querySelector('#language-options').setAttribute('aria-label',en?'Languages':'اللغات');document.querySelectorAll('[data-language]').forEach(option=>option.setAttribute('aria-pressed',String(option.dataset.language===lang)));
  document.title=en?'ZHIL — A presence that lasts':'ظل — نصنع حضورًا يبقى';document.querySelector('meta[name="description"]').content=en?'ZHIL — We design, create, and leave a mark. A creative vision with an identity that speaks for you.':'ظل — نصمم، نبتكر، ونترك أثرًا. رؤية إبداعية بهوية تتحدث عنك.';
- refreshLanguageState();try{localStorage.setItem('zhil-language',en?'en':'ar');}catch(_){}
+ refreshLanguageState();window.renderBrandIcons?.();try{localStorage.setItem('zhil-language',en?'en':'ar');}catch(_){}
  }
  const picker=button.closest('.language-picker'),options=document.querySelector('#language-options');
  const setOpen=(open,returnFocus=false)=>{options.hidden=!open;button.setAttribute('aria-expanded',String(open));if(returnFocus)button.focus();};

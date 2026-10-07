@@ -1,0 +1,8 @@
+(()=>{
+const paths={'↗':'M6 18 18 6M6 6h12v12','↘':'M6 6l12 12M6 18h12V6','↑':'M12 20V4M5 11l7-7 7 7','↓':'M12 4v16M5 13l7 7 7-7','✳':'M12 2v20M2 12h20M5 5l14 14M5 19 19 5','✓':'m5 12 4 4L19 6','×':'m6 6 12 12M6 18 18 6','+':'M12 5v14M5 12h14'};
+window.renderBrandIcons=(root=document)=>{
+root.querySelectorAll('.spark,.loop-group>i,.tile-links a,.footer-meta>a,.project-preview-label,.project-full,.project-close,.folder-symbol,.folder-plus,.swatches button span,.language-options button span').forEach(el=>{
+const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);const nodes=[];while(walker.nextNode())if(!walker.currentNode.parentElement.closest('svg'))nodes.push(walker.currentNode);
+nodes.forEach(node=>{if(!/[↗↘↑↓✳✓×+]/.test(node.textContent))return;const fragment=document.createDocumentFragment();for(const char of node.textContent){if(!paths[char]){fragment.append(document.createTextNode(char));continue;}const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 24 24');svg.setAttribute('class','brand-icon');svg.setAttribute('aria-hidden','true');svg.setAttribute('focusable','false');svg.setAttribute('fill','none');svg.setAttribute('stroke','currentColor');svg.setAttribute('stroke-width','1.7');svg.setAttribute('stroke-linecap','round');svg.setAttribute('stroke-linejoin','round');const path=document.createElementNS(svg.namespaceURI,'path');path.setAttribute('d',paths[char]);svg.append(path);fragment.append(svg);}node.replaceWith(fragment);});
+});};renderBrandIcons();
+})();
